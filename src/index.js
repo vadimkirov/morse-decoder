@@ -42,22 +42,19 @@ function decode(expr) {
     let result='';
     for(let count = 0; count < expr.length; count = count + 10) {
         let daChar = expr.substr(count, 10);
-
         if (daChar === '**********') {
             result += ' ';
             continue;
         }
         let findChar='';
         for (let i = 0; i < daChar.length; i = i + 2) {
-           let j = daChar[i]+daChar[i+1];
-
+            let j = daChar[i]+daChar[i+1];
             if(j === '10'){
-            findChar +='.'}
+                findChar +='.'}
             if(j === '11'){
                 findChar +='-'}
         }
         result += MORSE_TABLE[findChar];
-
     }
     return result;
 }
